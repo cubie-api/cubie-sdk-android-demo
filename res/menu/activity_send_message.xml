@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/item_shop"
+        android:showAsAction="always"
+        android:title="Shop"/>
+    <item
+        android:id="@+id/make_access_token_need_to_refresh"
+        android:showAsAction="never"
+        android:title="Make 1 hour Acesss Token"/>
+    <item
+        android:id="@+id/item_show_access_token"
+        android:showAsAction="never"
+        android:title="Show Acesss Token"/>
+    <item
+        android:id="@+id/item_invalidate_access_token"
+        android:showAsAction="never"
+        android:title="Invalidate Acesss Token"/>
+    <item
+        android:id="@+id/item_logout"
+        android:showAsAction="never"
+        android:title="Logout"/>
+
+</menu>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cubie SDK Demo</string>
+    <string name="cubie_app_key">[cubie_app_key]</string>
+    <string name="cubie_return_url_scheme">cubie-[cubie_app_key]</string>
+    <string name="send_text">Send Text</string>
+    <string name="send_img">Send Image</string>
+    <string name="send_app">Send App Button</string>
+    <string name="send_app_link">Send App Link</string>
+    <string name="send_all">Send All</string>
+
+</resources>

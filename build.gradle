@@ -1,0 +1,47 @@
+group = 'com.cubie.openapi'
+version = '0.0.1'
+
+project.ext.supportLibraryVersion = '19.0.1'
+project.ext.androidCompileSdkVersion = "Google Inc.:Google APIs:19"
+project.ext.androidBuildToolsVersion = "19.0.0"
+
+apply plugin: 'android'
+
+dependencies {
+    compile project(':cubie-sdk-android')
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+def manifestVersionName() {
+    def manifestFile = file(project.projectDir.absolutePath + '/AndroidManifest.xml')
+    def ns = new groovy.xml.Namespace("http://schemas.android.com/apk/res/android", "android")
+    def xml = new XmlParser().parse(manifestFile)
+    return xml.attributes()[ns.versionName].toString()
+}
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+
+    defaultConfig {
+        applicationVariants.all { variant ->
+            def file = variant.outputFile
+            variant.outputFile = new File(file.parent, file.name.replace(".apk", "-" + manifestVersionName() + ".apk"))
+        }
+    }
+    
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
+    
+    buildTypes {
+        debug {
+            zipAlign = true
+            signingConfig = null
+        }
+    }
+}
