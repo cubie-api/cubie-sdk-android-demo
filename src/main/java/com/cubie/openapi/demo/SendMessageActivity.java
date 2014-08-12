@@ -43,8 +43,6 @@ public class SendMessageActivity extends CubieBaseActivity {
   private CheckBox buttonTextCheckBox;
   private EditText textEditText;
   private EditText imageUrlEditText;
-  private EditText imageWidthEditText;
-  private EditText imageHeightEditText;
   private EditText linkTextEditText;
   private EditText linkExecuteParamsEditText;
   private EditText linkMarketParamsEditText;
@@ -60,9 +58,7 @@ public class SendMessageActivity extends CubieBaseActivity {
     }
 
     if (imageUrlCheckBox.isChecked()) {
-      builder.setImage(imageUrlEditText.getText().toString(),
-          Integer.parseInt(imageWidthEditText.getText().toString()),
-          Integer.parseInt(imageHeightEditText.getText().toString()));
+      builder.setImage(imageUrlEditText.getText().toString());
     }
 
     if (linkTextCheckBox.isChecked()) {
@@ -96,7 +92,7 @@ public class SendMessageActivity extends CubieBaseActivity {
     finish();
   }
 
-  private void loadProfile(final SessionHelper session) {
+  private void loadProfile() {
     final TextView nameView = (TextView) findViewById(R.id.name);
     final ImageView iconView = (ImageView) findViewById(R.id.icon);
 
@@ -151,8 +147,6 @@ public class SendMessageActivity extends CubieBaseActivity {
 
     textEditText = (EditText) findViewById(R.id.text_edittext);
     imageUrlEditText = (EditText) findViewById(R.id.image_url_edittext);
-    imageWidthEditText = (EditText) findViewById(R.id.image_width_edittext);
-    imageHeightEditText = (EditText) findViewById(R.id.image_height_edittext);
     linkTextEditText = (EditText) findViewById(R.id.link_text_edittext);
     linkExecuteParamsEditText = (EditText) findViewById(R.id.link_execute_params_edittext);
     linkMarketParamsEditText = (EditText) findViewById(R.id.link_market_params_edittext);
@@ -233,6 +227,6 @@ public class SendMessageActivity extends CubieBaseActivity {
   @Override
   public void onSessionOpen() {
     Log.d(TAG, "onSessionOpen");
-    loadProfile(SessionHelper.getSession());
+    loadProfile();
   }
 }

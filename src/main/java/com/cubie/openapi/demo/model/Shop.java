@@ -22,9 +22,9 @@ public class Shop {
   public static LinkedHashMap<String, Item> INVENTORY = new LinkedHashMap<String, Item>();
 
   static {
-    INVENTORY.put("sword", new Item("sword", "Sword", "TWD", new BigDecimal("90")));
-    INVENTORY.put("shield", new Item("shield", "Shield", "TWD", new BigDecimal("60")));
-    INVENTORY.put("arrow", new Item("arrow", "Arrow", "TWD", new BigDecimal("30")));
-    INVENTORY.put("bow", new Item("bow", "Bow", "TWD", new BigDecimal("60")));
+    INVENTORY.put("sword", new Item("sword", "Sword", new BigDecimal("90")));
+    INVENTORY.put("shield", new Item("shield", "Shield", new BigDecimal("60")));
+    INVENTORY.put("arrow", new Item("arrow", "Arrow", new BigDecimal("30")));
+    INVENTORY.put("bow", new Item("bow", "Bow", new BigDecimal("60")));
   }
 }

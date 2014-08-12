@@ -1,6 +1,5 @@
 package com.cubie.openapi.demo;
 
-import java.util.Date;
 import java.util.Locale;
 
 import org.json.JSONException;
@@ -81,13 +80,12 @@ public class ShopActivity extends CubieBaseActivity {
 
   private static final String TAG = ShopActivity.class.getSimpleName();
 
-  private void createTransaction(String sku, String orderId, long purchaseTime) {
-    final Item item = Shop.getItem(sku);
+  private void createTransaction(String orderId, String productId, long purchaseTime) {
+    final Item item = Shop.getItem(productId);
     final CubieTransactionRequest request = new CubieTransactionRequest(orderId,
-        sku,
-        item.getCurrency(),
+        productId,
         item.getPrice().toString(),
-        new Date(purchaseTime),
+        purchaseTime,
         null);
     Log.d(TAG, "createTransaction: " + request);
 
@@ -112,13 +110,13 @@ public class ShopActivity extends CubieBaseActivity {
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == RequestCode.BUY.ordinal()) {
       if (resultCode == RESULT_OK && data != null) {
-        final String purchaseData = data.getStringExtra("INAPP_PURCHASE_DATA");
+        final String purchaseDataJson = data.getStringExtra("INAPP_PURCHASE_DATA");
         try {
-          final JSONObject jo = new JSONObject(purchaseData);
-          final String sku = jo.getString("productId");
-          final String orderId = jo.getString("orderId");
-          final long purchaseTime = jo.getLong("purchaseTime");
-          createTransaction(sku, orderId, purchaseTime);
+          final JSONObject purchaseData = new JSONObject(purchaseDataJson);
+          final String productId = purchaseData.getString("productId");
+          final String orderId = purchaseData.getString("orderId");
+          final long purchaseTime = purchaseData.getLong("purchaseTime");
+          createTransaction(orderId, productId, purchaseTime);
         } catch (final JSONException e) {
           e.printStackTrace();
         }

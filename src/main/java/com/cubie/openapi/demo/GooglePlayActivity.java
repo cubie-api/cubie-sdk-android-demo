@@ -52,10 +52,7 @@ public class GooglePlayActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_google_play);
     item = extractItem(getIntent());
-    ((TextView) findViewById(R.id.item)).setText(item.getName() + " "
-        + item.getCurrency()
-        + " "
-        + item.getPrice());
+    ((TextView) findViewById(R.id.item)).setText(item.getName() + " " + " $" + item.getPrice());
     findViewById(R.id.buy).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {

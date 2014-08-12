@@ -70,19 +70,7 @@
                     android:id="@+id/image_url_edittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="http://placehold.it/250x180" />
-
-                <EditText
-                    android:id="@+id/image_width_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="250" />
-
-                <EditText
-                    android:id="@+id/image_height_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="180" />
+                    android:text="http://placehold.it/384x384" />
             </LinearLayout>
         </LinearLayout>
 

@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cubie.openapi.sdk.Cubie;
+import com.cubie.openapi.sdk.CubieService;
 import com.cubie.openapi.sdk.CubieServiceCallback;
 import com.cubie.openapi.sdk.activity.CubieBaseActivity;
 import com.cubie.openapi.sdk.exception.CubieException;
@@ -154,7 +155,9 @@ public class SelectFriendActivity extends CubieBaseActivity {
   }
 
   private void loadFriends() {
-    Cubie.getService().requestFriends(cubieFriendList, callback);
+    Cubie.getService().requestFriends(cubieFriendList,
+        CubieService.DEFAULT_FRIEND_LIST_PAGE_SIZE,
+        callback);
   }
 
   @Override
