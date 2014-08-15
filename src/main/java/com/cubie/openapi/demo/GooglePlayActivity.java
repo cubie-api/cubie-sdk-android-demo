@@ -13,17 +13,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.cubie.openapi.demo.model.Item;
-
 public class GooglePlayActivity extends Activity {
 
-  public static Intent createIntent(Activity activity, Item item) {
+  public static Intent createIntent(Activity activity, DemoItem item) {
     final Intent intent = new Intent(activity, GooglePlayActivity.class);
     intent.putExtra("item", item);
     return intent;
   }
 
-  private Item item;
+  private DemoItem item;
 
   protected Intent createResultIntent() {
     final JSONObject purchaseData = new JSONObject();
@@ -43,8 +41,8 @@ public class GooglePlayActivity extends Activity {
     return intent;
   }
 
-  public Item extractItem(Intent intent) {
-    return (Item) intent.getSerializableExtra("item");
+  public DemoItem extractItem(Intent intent) {
+    return (DemoItem) intent.getSerializableExtra("item");
   }
 
   @Override

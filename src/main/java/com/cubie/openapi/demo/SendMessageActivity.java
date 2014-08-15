@@ -41,6 +41,7 @@ public class SendMessageActivity extends CubieBaseActivity {
   private CheckBox imageUrlCheckBox;
   private CheckBox linkTextCheckBox;
   private CheckBox buttonTextCheckBox;
+  private EditText notificationEditText;
   private EditText textEditText;
   private EditText imageUrlEditText;
   private EditText linkTextEditText;
@@ -52,6 +53,8 @@ public class SendMessageActivity extends CubieBaseActivity {
 
   private CubieMessage buildMessage() {
     final CubieMessageBuilder builder = new CubieMessageBuilder();
+
+    builder.setNotification(notificationEditText.getText().toString());
 
     if (textCheckBox.isChecked()) {
       builder.setText(textEditText.getText().toString());
@@ -88,7 +91,7 @@ public class SendMessageActivity extends CubieBaseActivity {
   }
 
   private void goToMainActivity() {
-    startActivity(new Intent(this, MainActivity.class));
+    startActivity(new Intent(this, DemoMainActivity.class));
     finish();
   }
 
@@ -145,6 +148,7 @@ public class SendMessageActivity extends CubieBaseActivity {
     linkTextCheckBox = (CheckBox) findViewById(R.id.link_text_checkbox);
     buttonTextCheckBox = (CheckBox) findViewById(R.id.button_text_checkbox);
 
+    notificationEditText = (EditText) findViewById(R.id.notification_edittext);
     textEditText = (EditText) findViewById(R.id.text_edittext);
     imageUrlEditText = (EditText) findViewById(R.id.image_url_edittext);
     linkTextEditText = (EditText) findViewById(R.id.link_text_edittext);

@@ -34,6 +34,29 @@
             android:orientation="horizontal" >
 
             <CheckBox
+                android:id="@+id/notification_checkbox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:checked="true"
+                android:enabled="false"
+                android:editable="false"
+                android:text="Notification" />
+
+            <EditText
+                android:id="@+id/notification_edittext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Notification" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <CheckBox
                 android:id="@+id/text_checkbox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

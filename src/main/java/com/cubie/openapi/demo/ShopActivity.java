@@ -19,8 +19,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cubie.openapi.demo.model.Item;
-import com.cubie.openapi.demo.model.Shop;
 import com.cubie.openapi.sdk.Cubie;
 import com.cubie.openapi.sdk.CubieServiceCallback;
 import com.cubie.openapi.sdk.activity.CubieBaseActivity;
@@ -37,12 +35,12 @@ public class ShopActivity extends CubieBaseActivity {
 
     @Override
     public int getCount() {
-      return Shop.listItems().size();
+      return DemoShop.listItems().size();
     }
 
     @Override
-    public Item getItem(int position) {
-      return Shop.getItemAt(position);
+    public DemoItem getItem(int position) {
+      return DemoShop.getItemAt(position);
     }
 
     @Override
@@ -63,7 +61,7 @@ public class ShopActivity extends CubieBaseActivity {
         viewHolder = (ViewHolder) convertView.getTag();
       }
 
-      final Item friend = getItem(position);
+      final DemoItem friend = getItem(position);
       viewHolder.nameView.setText(friend.getName());
       return convertView;
     }
@@ -81,7 +79,7 @@ public class ShopActivity extends CubieBaseActivity {
   private static final String TAG = ShopActivity.class.getSimpleName();
 
   private void createTransaction(String orderId, String productId, long purchaseTime) {
-    final Item item = Shop.getItem(productId);
+    final DemoItem item = DemoShop.getItem(productId);
     final CubieTransactionRequest request = new CubieTransactionRequest(orderId,
         productId,
         item.getPrice().toString(),
@@ -134,7 +132,7 @@ public class ShopActivity extends CubieBaseActivity {
     itemList.setOnItemClickListener(new OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        final Item item = itemListAdapter.getItem(position);
+        final DemoItem item = itemListAdapter.getItem(position);
         startActivityForResult(GooglePlayActivity.createIntent(ShopActivity.this, item),
             RequestCode.BUY.ordinal());
       }
