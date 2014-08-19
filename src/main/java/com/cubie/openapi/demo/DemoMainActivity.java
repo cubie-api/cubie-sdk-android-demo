@@ -20,7 +20,7 @@ public class DemoMainActivity extends CubieBaseActivity {
   @Override
   protected void onBaseCreate(final Bundle savedInstanceState) {
     setContentView(R.layout.activity_demo_main);
-    findViewById(R.id.loginButton).setOnClickListener(new OnClickListener() {
+    findViewById(R.id.connectButton).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(final View v) {
         connect();
